@@ -1,38 +1,46 @@
-# sv
+# 🧪 SvelteKit + Prisma + MariaDB Docker Skeleton
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This is a boilerplate project to quickly spin up a full-stack SvelteKit app backed by MariaDB and Prisma, all running in Docker.
 
-## Creating a project
+---
 
-If you're seeing this, you've probably already done this step. Congrats!
+## 🚀 Quick Start
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### 1. Clone the Repo
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+git clone https://github.com/YOUR_USERNAME/sveltekit-docker-skeleton.git
+cd sveltekit-docker-skeleton
 ```
-
-## Building
-
-To create a production version of your app:
-
+## 2. Create env file (optional: adjust db variables)
 ```bash
-npm run build
+cp .example.env .env
+```
+## 3. Start docker containers
+```bash
+docker-compose up --build
+```
+### 4. Run initial Prisma migration
+```bash
+docker exec -it <your_app_container_name> npx prisma migrate dev --name init
+```
+Or if using the default container name:
+```bash
+docker exec -it sveltekit-1 npx prisma migrate dev --name init
 ```
 
-You can preview the production build with `npm run preview`.
+### 📦 What’s Included
+	•	SvelteKit
+	•	Prisma ORM
+	•	MariaDB (via Docker)
+	•	Dockerized development workflow
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+### Project structure:
+
+├── src/                # SvelteKit source
+├── prisma/             # Prisma schema & migrations
+├── Dockerfile          # App container
+├── docker-compose.yml  # Docker services (SvelteKit + MariaDB)
+├── .env.example        # Sample env config
+├── .gitignore
+└── README.md
