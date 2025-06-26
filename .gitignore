@@ -1,0 +1,31 @@
+# Environment
+.env
+.env.*       # Prevent secrets from leaking
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build artifacts
+.build/
+dist/
+.svelte-kit/
+.vite/
+
+# Docker runtime
+*.pid
+*.log
+
+# Prisma
+prisma/dev.db
+# prisma/migrations/*/README.md  # optional: keep if you want cleaner commits
+
+# OS/Editor cruft
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

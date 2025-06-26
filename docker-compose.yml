@@ -1,0 +1,30 @@
+services:
+  db:
+    image: mariadb:11
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE_NAME}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - app-network
+
+  sveltekit:
+    build: ./sveltekit-app
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./sveltekit-app/.env
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+volumes:
+  mariadb_data:
+
+networks:
+  app-network:
