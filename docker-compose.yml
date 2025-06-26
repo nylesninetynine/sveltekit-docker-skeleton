@@ -13,11 +13,17 @@ services:
       - app-network
 
   sveltekit:
-    build: ./sveltekit-app
+    build:
+      context: ./sveltekit-app
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./sveltekit-app:/app
+      - /app/node_modules
     ports:
-      - "3000:3000"
+      - "5173:5173"
     env_file:
       - ./sveltekit-app/.env
+    command: [ "npm", "run", "dev", "--", "--host" ] # So Vite listens on 0.0.0.0
     depends_on:
       - db
     networks:

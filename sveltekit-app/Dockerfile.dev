@@ -1,0 +1,11 @@
+FROM node:20
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+
+RUN npm install
+
+# Don't copy app files now — they'll be volume-mounted
+
+CMD ["npm", "run", "dev", "--", "--host"]
