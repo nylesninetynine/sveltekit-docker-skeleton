@@ -37,10 +37,10 @@ docker exec -it sveltekit-1 npx prisma migrate dev --name init
 
 ### Project structure:
 
-├── src/                # SvelteKit source
-├── prisma/             # Prisma schema & migrations
-├── Dockerfile          # App container
-├── docker-compose.yml  # Docker services (SvelteKit + MariaDB)
-├── .env.example        # Sample env config
-├── .gitignore
-└── README.md
+src/                # SvelteKit source
+prisma/             # Prisma schema & migrations
+Dockerfile          # App container
+docker-compose.yml  # Docker services (SvelteKit + MariaDB)
+.env.example        # Sample env config
+.gitignore
+README.md
