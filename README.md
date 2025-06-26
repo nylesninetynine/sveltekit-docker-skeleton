@@ -9,7 +9,7 @@ This is a boilerplate project to quickly spin up a full-stack SvelteKit app back
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/sveltekit-docker-skeleton.git
+git clone https://github.com/nylesninetynine/sveltekit-docker-skeleton.git
 cd sveltekit-docker-skeleton
 ```
 ## 2. Create env file (optional: adjust db variables)
